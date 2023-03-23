@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+  <h3>User: {{user}} </h3>
+{% else %}
+  <h3> You have not entered yet </h3>
+{% endif %}
+</h3>
+
+      <div class="data">
+        <h2>Number of users:</h2>
+
+              {% if user.is_authenticated %}
+         <h1 id="random-number">Loading...</h1>
+<script>
+        setInterval(function() {
+            fetch('users/generate_random_number')
+            .then(response => response.json())
+            .then(data => {
+                const randomNumber = data.number;
+                document.getElementById('random-number').innerText = randomNumber;
+            });
+        }, 2000);
+
+    </script>
+{% else %}
+ <h1 >?</h1>
+{% endif %}
+
+      </div>
+
+<div class="btn_container">
+    {% if user.is_authenticated %}
+<a class="btn" href="{% url 'logout' %}"><div class="btn">Log Out</div></a>
+{% else %}
+<a class="btn" href="{% url 'login' %}"><div class="btn">Log In</div></a>
+{% endif %}
+</div>
+
+{% endblock %}
+

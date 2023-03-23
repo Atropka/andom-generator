@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h3>Login Here</h3><br>
+{% if form.errors %}
+<p>{{ form.errors.error }}</p>
+{% endif %}
+<form action="{% url 'login' %}" method="post">
+    {{ form }}
+{% csrf_token %}
+    <button type="submit">Submit</button>
+
+</form>
+ <div class="social">
+        <div class="go"> <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a></div>
+      </div>
+
+
+{% endblock %}
