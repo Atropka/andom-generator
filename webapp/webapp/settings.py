@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*c4t6gai!6yhl@5q2gn@i!6txo5k_m)ojwsfy*cxf*_d_3yp08
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Atropin.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -128,7 +128,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = '/home/Atropini/static'
+MEDIA_ROOT = '/home/Atropin/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
